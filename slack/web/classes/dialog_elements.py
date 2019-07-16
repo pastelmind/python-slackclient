@@ -82,7 +82,7 @@ class DialogTextComponent(JsonObject, metaclass=ABCMeta):
 
     @JsonValidator(f"value attribute exceeded bounds")
     def value_length(self):
-        return self.value is None or len(self.value) < self.max_value_length
+        return self.value is None or len(self.value) <= self.max_value_length
 
     @JsonValidator("min_length attribute must be greater than or equal to 0")
     def min_length_above_zero(self):
